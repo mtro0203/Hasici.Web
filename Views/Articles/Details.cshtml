@@ -1,0 +1,14 @@
+﻿@model Hasici.Web.Article
+
+
+
+<div>
+    <h1>@Html.DisplayFor(model => model.Title)</h1>
+    <hr />
+
+    <p>@Html.DisplayFor(model => model.Content)</p>
+
+</div>
+<div>
+    <a asp-controller="Home" asp-action="Index" class="button actions">Späť</a>
+</div>

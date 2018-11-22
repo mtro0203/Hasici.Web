@@ -1,0 +1,27 @@
+﻿@using Hasici.Web
+@model Hasici.Web.Article
+
+@{
+
+    ViewData["Title"] = "DHZ Suchá Hora";
+}
+
+
+<div>
+    <h1>@Html.DisplayFor(model => model.Title)</h1>
+
+
+    <p>@Html.DisplayFor(model => model.Content)</p>
+
+    <div>
+        <a asp-controller="Articles" asp-action="Details" asp-route-id="@Model.Id" class="button left">Čítať ďalej</a>
+    </div>
+
+    <hr class="major">
+
+    <div>
+        @await Component.InvokeAsync(nameof(RecentlyAddedArticles), new { numberOfArticles = 4 })
+    </div>
+
+
+</div>
