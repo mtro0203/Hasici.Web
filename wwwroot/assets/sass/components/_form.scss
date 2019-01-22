@@ -37,6 +37,7 @@
 		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
+        height:auto;
 
 		&:invalid {
 			box-shadow: none;
@@ -83,7 +84,8 @@
 		height: _size(element-height);
 	}
 
-	textarea {
+	
+    {
 		padding: 0.75em 1em;
 	}
 

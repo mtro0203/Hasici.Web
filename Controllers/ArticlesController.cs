@@ -17,7 +17,7 @@ namespace Hasici.Web.Controllers
         {
             _context = context;
         }
-
+        
         // GET: Articles
         public async Task<IActionResult> Index()
         {
@@ -88,6 +88,8 @@ namespace Hasici.Web.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["Title"] = "Upraviť";
             return View(article);
         }
 

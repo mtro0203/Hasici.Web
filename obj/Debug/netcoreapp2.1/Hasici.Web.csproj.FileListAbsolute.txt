@@ -14,7 +14,6 @@ C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Hasici.Web.AssemblyInf
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Hasici.Web.TagHelpers.input.cache
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Hasici.Web.TagHelpers.output.cache
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Hasici.Web.RazorCoreGenerate.cache
-C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs

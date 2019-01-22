@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<Hasici.Web.Article>
 
-@{
-    ViewData["Title"] = "About";
-}
-
 
 
 <h2>@ViewData["Title"]</h2>
 <p>
     <a asp-action="Create">Nový</a>
 </p>
+
+<!--Headlines for displayed data  -->
 <table class="table-wrapper">
     <thead>
         <tr>
@@ -29,27 +27,31 @@
         </tr>
     </thead>
     <tbody>
+
+        <!-- Displayed data -->
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Preview)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Publised)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Upraviť</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Zobraziť</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Vymazať</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.Raw(item.Preview)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publised)
+            </td>
+
+            <!-- Actions for the each article-->
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Upraviť</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Zobraziť</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Vymazať</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

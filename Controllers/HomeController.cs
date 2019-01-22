@@ -31,12 +31,7 @@ namespace Hasici.Web.Controllers
             return View(lastArticle);
         }
 
-        [Route("/about")]
-        public IActionResult About()
-        {
-            return View();
-        }
-
+      
         
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

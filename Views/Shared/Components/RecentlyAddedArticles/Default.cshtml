@@ -14,15 +14,15 @@
         {
             <article>
 
-                <a href="#" class="image col-2-xlarge"><img src="images/pic01.jpg" alt="" /></a>
+                <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
                 <h3>@Html.DisplayFor(m => article.Title)</h3>
-                <p1>@Html.DisplayFor(m => article.Preview)</p1>
+                @Html.Raw(article.Preview)                
 
-                <div>
+             
                     <ul class="actions">
                         <li><a asp-controller="Articles" asp-action="Details" asp-route-id="@article.Id" class="button">Čítať ďalej</a></li>
                     </ul>
-                </div>
+               
 
 
             </article>

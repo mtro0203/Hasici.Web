@@ -46,12 +46,13 @@ namespace Hasici.Web
         /// <summary>
         /// The date when the article was released
         /// </summary>
-        [Display(Name = "Dátum")]
+        [Display(Name = "Dátum publikácie")]
         public DateTime Date { get; set; }
 
         /// <summary>
         /// The flag if the article was released or not
         /// </summary>
+        [Display(Name ="Publikované")]
         public bool Publised { get; set; }
         
 

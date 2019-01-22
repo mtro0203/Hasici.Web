@@ -8,6 +8,7 @@
 
 <html>
 <head>
+
     <title>@ViewData["Title"]</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -15,8 +16,8 @@
         <link rel="stylesheet" href="~/assets/css/main.css" />
     </environment>
 
+    @RenderSection("Scripts", required: false)
 
-    
 </head>
 <body class="is-preload">
 
@@ -34,19 +35,15 @@
                         <li><a href="https://www.facebook.com/hasicish/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
                     </ul>
                 </header>
-
-                <!-- Banner -->
-                <section id="banner">
-                    <div class="content">
-
-                        @RenderBody()
-                    </div>
-
-                </section>
-
+                
+                <div>
+                    @RenderBody()
+                </div>
+                 
+                   
 
                 <!-- Section -->
-                <
+                
 
             </div>
         </div>
@@ -55,12 +52,7 @@
         <div id="sidebar">
             <div class="inner">
 
-                <!-- Search -->
-                <section id="search" class="alt">
-                    <form method="post" action="#">
-                        <input type="text" name="query" id="query" placeholder="Search" />
-                    </form>
-                </section>
+              
 
                 <!-- Menu -->
                 <nav id="menu">
@@ -81,19 +73,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Etiam Dolore</a></li>
-                        <li><a href="#">Adipiscing</a></li>
-                        <li>
-                            <span class="opener">Another Submenu</span>
-                            <ul>
-                                <li><a href="#">Lorem Dolor</a></li>
-                                <li><a href="#">Ipsum Adipiscing</a></li>
-                                <li><a href="#">Tempus Magna</a></li>
-                                <li><a href="#">Feugiat Veroeros</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Maximus Erat</a></li>
-                        <li><a href="#">Sapien Mauris</a></li>
-                        <li><a href="#">Amet Lacinia</a></li>
+                        <li><a href="#">Adipiscing</a></li>                       
                     </ul>
                 </nav>
 
@@ -101,15 +81,15 @@
                 <!-- Section -->
                 <section>
                     <header class="major">
-                        <h2>Ostan v kontakte</h2>
+                        <h2>Info a kontakt</h2>
                     </header>
-                    <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                    <p>Dobrovoľný hasičský zbor Suchá Hora bol založený v roku 1924.Zakladajúci členovia si zvolili za svojho prvého predsedu Jána Trojana a veliteľa Karla Kuřila. V súčasnosti je predseda DHZ Suchá Hora Karol Trojan a veliteľ Martin Šuvada.</p>
                     <ul class="contact">
                         <li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
-                        <li class="fa-phone">(000) 000-0000</li>
+                        <li class="fa-phone">+42109675324</li>
                         <li class="fa-home">
-                            1234 Somewhere Road #8254<br />
-                            Nashville, TN 00000-0000
+                            Dobrovoľný hasičský zbor Suchá Hora<br />
+                            027 13 Suchá Hora 113
                         </li>
                     </ul>
                 </section>
@@ -131,11 +111,14 @@
         <script src="~/assets/js/breakpoints.min.js"></script>
         <script src="~/assets/js/util.js"></script>
         <script src="~/assets/js/main.js"></script>
-      
+
 
     </environment>
 
+
+
    
+
 
 </body>
 </html>

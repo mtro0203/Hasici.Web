@@ -6,7 +6,7 @@
     <h1>@Html.DisplayFor(model => model.Title)</h1>
     <hr />
 
-    <p>@Html.DisplayFor(model => model.Content)</p>
+    @Html.Raw(Model.Content)
 
 </div>
 <div>

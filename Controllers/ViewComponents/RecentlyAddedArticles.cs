@@ -7,12 +7,20 @@ using System.Threading.Tasks;
 
 namespace Hasici.Web
 {
-   
+
+    /// <summary>
+    ///The class that gets the last articles from the database
+    /// </summary>
     public class RecentlyAddedArticles : ViewComponent
     {
 
         private readonly ApplicationDbContext _context;
 
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="context"></param>
         public RecentlyAddedArticles(ApplicationDbContext context)
         {
             _context = context;
@@ -21,7 +29,7 @@ namespace Hasici.Web
         
         public async Task<IViewComponentResult> InvokeAsync(int numberOfArticles)
         {
-            //  var articles = await GetArticles(numberOfArticles);
+           
 
             var articles = await GetArticles(numberOfArticles);
 

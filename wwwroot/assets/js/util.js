@@ -323,7 +323,8 @@
 		// Vars.
 			var $this = $(this);
 
-		// Text, TextArea.
+		// Text, 
+        
 			$this.find('input[type=text],textarea')
 				.each(function() {
 
