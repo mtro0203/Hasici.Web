@@ -33,3 +33,4 @@ C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Articles\D
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Articles\Edit.g.cshtml.cs
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Articles\Index.g.cshtml.cs
 C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\RecentlyAddedArticles\Default.g.cshtml.cs
+C:\Users\marti\ASP.NET\Hasici.Web\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs

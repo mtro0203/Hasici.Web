@@ -71,7 +71,7 @@ using Hasici.Web;
             WriteLiteral("     \r\n        <div>\r\n            ");
             EndContext();
             BeginContext(225, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a44f574a0d4aaaa21781986a40fe05", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b49f3da078174923922453a4ef23ca17", async() => {
                 BeginContext(320, 11, true);
                 WriteLiteral("Čítať ďalej");
                 EndContext();

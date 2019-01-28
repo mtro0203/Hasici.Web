@@ -90,7 +90,7 @@ using Hasici.Web;
             WriteLiteral("                \r\n\r\n             \r\n                    <ul class=\"actions\">\r\n                        <li>");
             EndContext();
             BeginContext(531, 107, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c78edc38ea574f319db7e74acd070b13", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6bcf4bea77ca4f78a34b459add4a5a43", async() => {
                 BeginContext(623, 11, true);
                 WriteLiteral("Čítať ďalej");
                 EndContext();

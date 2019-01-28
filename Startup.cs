@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Hasici.Web
 {
@@ -27,6 +28,7 @@ namespace Hasici.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //add dbContext to Dependency Injection
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
@@ -45,8 +47,8 @@ namespace Hasici.Web
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
-            }
-
+            }           
+           
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
