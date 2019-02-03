@@ -1,7 +1,83 @@
-﻿
+﻿@model LoginViewModel
+
 @{
     ViewData["Title"] = "Login";
 }
 
-<h2>Login</h2>
 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <environment>
+        <link rel="stylesheet" href="~/assets/css/main.css" />
+    </environment>
+</head>
+<body>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <a asp-controller="Home" asp-action="Index" class="logo">Dobrovoľný hasičský zbor <strong>Suchá Hora</strong></a>
+                <ul class="icons">
+                    <li><a href="https://www.facebook.com/hasicish/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                </ul>
+            </header>
+
+            <div class="row">
+                <h2>Login</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-6-xsmall off-3-xsmall col-4 off-4">
+                    <div class="box ">
+                        <form asp-action="Login" asp-route-returnurl="@ViewData["returnUrl"]" method="post">
+
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Email"></label>
+                                <input asp-for="Email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Password"></label>
+                                <input asp-for="Password" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default">Prihlásiť sa</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+    <environment>
+        <script src="~/assets/js/jquery.min.js"></script>
+        <script src="~/assets/js/browser.min.js"></script>
+        <script src="~/assets/js/breakpoints.min.js"></script>
+        <script src="~/assets/js/util.js"></script>
+        <script src="~/assets/js/main.js"></script>
+    </environment>
+</body>
+</html>

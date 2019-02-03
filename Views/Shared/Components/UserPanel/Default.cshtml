@@ -1,0 +1,24 @@
+﻿@model UserPanelViewModel
+<ul>
+    @if (Model.LoggedIn)
+    {
+
+       
+        <li>
+            <span class="opener">@Model.RealName</span>
+            <ul>
+                <li><a href="#">Lorem Dolor</a></li>
+                <li><a href="#">Ipsum Adipiscing</a></li>
+                <li><a href="#">Tempus Magna</a></li>
+                <li><a asp-controller="Account" asp-action="LogOut">Odhlásiť sa</a></li>
+            </ul>
+        </li>
+    }
+    else
+    {
+
+        <li><a asp-controller="Account" asp-action="Login">Prihlásiť sa</a></li>
+        <li><a asp-controller="Account" asp-action="Register">Registrovať sa</a></li>
+
+    }
+</ul>

@@ -18,7 +18,9 @@ namespace Hasici.Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this method to add services to the 
+        
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -31,7 +33,22 @@ namespace Hasici.Web
             //add dbContext to Dependency Injection
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+            //adds scoped classer for things like userManager, signInMager etc..
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                //configuring password policy
+                options.Password.RequireNonAlphanumeric = false;
+            })
+
+                //adds tables for iddentity which are used by userManager, signInManager
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+
+                //provider for generating unique keys for things like forgotten passwords etc...
+                .AddDefaultTokenProviders();
             
+           
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -47,8 +64,10 @@ namespace Hasici.Web
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
-            }           
-           
+            }
+
+            app.UseAuthentication();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

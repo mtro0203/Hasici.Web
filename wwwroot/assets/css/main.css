@@ -3567,3 +3567,8 @@ input, select, textarea {
 			margin-top: 0;
 			padding-top: 0;
 		}
+
+.container {
+    display: flex;
+    justify-content: center;
+}

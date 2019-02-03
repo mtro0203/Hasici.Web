@@ -20,7 +20,7 @@ namespace Hasici.Web.Controllers
 
         public IActionResult Index()
         {
-            //  DbInit.FillDb(_context);
+           //  DbInit.FillDb(_context);
 
             var lastArticle = _context.Articles
                 .AsNoTracking()
