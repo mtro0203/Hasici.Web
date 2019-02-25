@@ -38,6 +38,8 @@ namespace Hasici.Web.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
+                    b.Property<bool>("Male");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
 

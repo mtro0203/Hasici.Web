@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hasici.Web;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hasici.Web.Controllers
+
 {
+    [Authorize(Roles = "admin")]
     public class ArticlesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -17,7 +20,7 @@ namespace Hasici.Web.Controllers
         {
             _context = context;
         }
-        
+
         // GET: Articles
         public async Task<IActionResult> Index()
         {
@@ -25,6 +28,7 @@ namespace Hasici.Web.Controllers
         }
 
         // GET: Articles/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -54,7 +58,7 @@ namespace Hasici.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create ([Bind("Title,Content,Date,Publised")] Article article)
+        public async Task<IActionResult> Create([Bind("Title,Content,Date,Publised")] Article article)
         {
             try
             {
@@ -64,12 +68,12 @@ namespace Hasici.Web.Controllers
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-                
+
             }
 
-            catch(DbUpdateException ex)
+            catch (DbUpdateException ex)
             {
-                ModelState.AddModelError("","Nebolo možné uložiť zmeny");
+                ModelState.AddModelError("", "Nebolo možné uložiť zmeny");
             }
 
             return View(article);
@@ -96,7 +100,7 @@ namespace Hasici.Web.Controllers
         // POST: Articles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost,ActionName("Edit")]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditPost(int? id)
         {
@@ -122,11 +126,11 @@ namespace Hasici.Web.Controllers
                 catch (DbUpdateException ex)
                 {
                     ModelState.AddModelError("", "Nebolo možné uložiť zmeny");
-                    
+
                 }
 
             }
-                return View(articleToUpdate);
+            return View(articleToUpdate);
 
         }
 

@@ -7,36 +7,39 @@
     <script src="@Url.Content("~/assets/js/initTinyMCE().js")"></script>
 }
 
-<h2>@ViewData["Title"]</h2>
+@ViewData["Title"]="Nový článok"
+
 <hr />
 <div class="row">
     <div class="col-12">
         <form asp-action="Edit">
 
             <!--Input for title-->
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
+            <div class="col-12">
+                <label asp-for="Title" />
+                <input asp-for="Title" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
 
             <!--Textarea for content-->
-            <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
+            <div class="col-12">
+                <label asp-for="Content"></label>
                 <textarea asp-for="Content" rows="15" placeholder="Môžete začať písat..."></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
 
             <!--Chekbox, checked to be puslished-->
-            <div class="form-control">
+            <div class="col-12">
 
                 @Html.CheckBoxFor(m => m.Publised)
                 <label for="Publised">Publikovať</label>
             </div>
-                                   
+
             <!--"Save" button-->
-            <div class="form-group">
-                <input type="submit" value="Save" class="button primary" />
+            <div class="col-12">
+                <ul class="actions">
+                    <li><input type="submit" value="Uložiť článok" class="primary"></li>
+                </ul>
             </div>
         </form>
     </div>
@@ -45,5 +48,11 @@
 
 <!--"Back" button-->
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="button">Back to List</a>
+</div>
+
+<div class="col-12">
+    <ul class="actions">
+        <li><a asp-action="Index" class="button">Naspäť</a></li>
+    </ul>
 </div>

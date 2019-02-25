@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace Hasici.Web
 {
@@ -40,6 +41,7 @@ namespace Hasici.Web
             {
                 //configuring password policy
                 options.Password.RequireNonAlphanumeric = false;
+                
             })
 
                 //adds tables for iddentity which are used by userManager, signInManager
@@ -47,14 +49,21 @@ namespace Hasici.Web
 
                 //provider for generating unique keys for things like forgotten passwords etc...
                 .AddDefaultTokenProviders();
-            
-           
+
+
+            //configuring cookies - expiration time...
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromHours(2);
+
+
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env/*, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager*/)
         {
             if (env.IsDevelopment())
             {
@@ -67,6 +76,10 @@ namespace Hasici.Web
             }
 
             app.UseAuthentication();
+
+            //roleManager.CreateAsync(new IdentityRole("admin")).Wait();
+            //var user = userManager.FindByEmailAsync("martin.trojan.372@gmail.com").Result;
+            //userManager.AddToRoleAsync(user, "admin").Wait();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

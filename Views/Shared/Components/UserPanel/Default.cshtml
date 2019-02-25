@@ -1,15 +1,23 @@
 ﻿@model UserPanelViewModel
+
+
 <ul>
     @if (Model.LoggedIn)
-    {
+    {     
 
-       
+
         <li>
             <span class="opener">@Model.RealName</span>
             <ul>
-                <li><a href="#">Lorem Dolor</a></li>
-                <li><a href="#">Ipsum Adipiscing</a></li>
-                <li><a href="#">Tempus Magna</a></li>
+                <li><a asp-controller="Account" asp-action="Profile" asp-route-id="@Model.UserId">Môj profil</a></li>
+                @if (User.IsInRole("admin"))
+                {
+
+                    <li><a asp-controller="Articles" asp-action="Index">Články</a></li>
+                    <li><a asp-controller="Account" asp-action="GetUsers">Správa účtov</a></li>
+                }
+
+                <li><a>Moje kurzy</a></li>
                 <li><a asp-controller="Account" asp-action="LogOut">Odhlásiť sa</a></li>
             </ul>
         </li>

@@ -15,7 +15,7 @@ namespace Hasici.Web.Controllers
         public HomeController(ApplicationDbContext context)
         {
             _context = context;
-            //DbInit.FillDb(_context);
+            
         }
 
         public IActionResult Index()

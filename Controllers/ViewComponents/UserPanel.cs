@@ -8,6 +8,8 @@ namespace Hasici.Web
     {
         private readonly UserManager<ApplicationUser> _userManager;
 
+        #region Constructor
+
         /// <summary>
         /// Constructor with userManager parameter, which is injected by DI
         /// </summary>
@@ -17,7 +19,7 @@ namespace Hasici.Web
             _userManager = userManager;
         }
 
-        //TODO: osetrit padanie pri neprihlasenom userovi
+        #endregion
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
@@ -34,7 +36,9 @@ namespace Hasici.Web
                 var vm = new UserPanelViewModel
                 {
                     RealName = appUser.RealName,
-                    LoggedIn = true
+                    LoggedIn = true,
+                    UserId = appUser.Id
+                    
                     //TODO: pridat do viewmodelu ostatne vlastnosti       
 
                 };

@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="~/assets/css/main.css" />
     </environment>
 
-    @RenderSection("Scripts", required: false)
+    
 
 </head>
 <body class="is-preload">
@@ -39,15 +39,8 @@
                     </ul>
                 </header>
 
-                <div>
-                    @RenderBody()
-                </div>
-
-
-
-                <!-- Section -->
-
-
+                @RenderBody()
+                
             </div>
         </div>
 
@@ -56,10 +49,8 @@
             <div class="inner">
                 <nav id="menu">
 
+                    @await Component.InvokeAsync(nameof(UserPanel))
                     
-                        @await Component.InvokeAsync(nameof(UserPanel))
-                    
-
                     <hr />
                     <!-- Menu -->
 
@@ -68,19 +59,17 @@
                     </header>
                     <ul>
                         <li><a asp-controller="Home" asp-action="Index">Domov</a></li>
-                        <li><a asp-controller="Articles" asp-action="Index">Články</a></li>
-                        <li><a asp-controller="Home" asp-action="About">Elements</a></li>
+                        <li><a asp-controller="Home" asp-action="About">Zásahy</a></li>
                         <li>
-                            <span class="opener">Submenu</span>
+                            <span class="opener">Šport</span>
                             <ul>
-                                <li><a href="#">Lorem Dolor</a></li>
-                                <li><a href="#">Ipsum Adipiscing</a></li>
-                                <li><a href="#">Tempus Magna</a></li>
-                                <li><a href="#">Feugiat Veroeros</a></li>
+                                <li><a href="#">HOHL</a></li>
+                                <li><a href="#">Mládež</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Etiam Dolore</a></li>
-                        <li><a href="#">Adipiscing</a></li>
+                        <li><a href="#">Fotogaléria</a></li>
+                        <li><a href="#">Členovia</a></li>
+                        <li><a href="#">História</a></li>
                     </ul>
                 </nav>
 
@@ -118,13 +107,9 @@
         <script src="~/assets/js/breakpoints.min.js"></script>
         <script src="~/assets/js/util.js"></script>
         <script src="~/assets/js/main.js"></script>
-
-
     </environment>
 
-
-
-
+    @RenderSection("Scripts", required: false)
 
 
 </body>

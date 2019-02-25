@@ -33,7 +33,7 @@ namespace Hasici.Web
 
             var articles = await GetArticles(numberOfArticles);
 
-            ViewData["Title_2"] = "Články";
+            ViewData["Title_2"] = "Novinky";
             return View(articles);
         }
 

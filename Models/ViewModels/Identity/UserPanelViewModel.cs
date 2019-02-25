@@ -5,7 +5,7 @@ namespace Hasici.Web
     public class UserPanelViewModel
     {
         /// <summary>
-        /// Name of logged user
+        /// Name of logged in user
         /// </summary>
         public string RealName { get; set; }
 
@@ -14,6 +14,10 @@ namespace Hasici.Web
         /// </summary>
         public bool LoggedIn { get; set; }
 
+        /// <summary>
+        /// The id of logged in user
+        /// </summary>
+        public string UserId { get; set; }
 
     }
 }

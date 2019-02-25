@@ -1,6 +1,8 @@
 ﻿@model Hasici.Web.Article
 
-
+@{
+    ViewData["Title"] = "Nový článok";
+}
 
 @section scripts
     {
@@ -9,43 +11,41 @@
 }
 
 
-<div class="row">
-    <div class="col-12">
-        <form asp-action="Create">
 
 
-            <!--Input for title-->
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
+<form asp-action="Create">
 
-            <!--Textarea for content-->
-            <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <textarea asp-for="Content" rows="15" placeholder="Môžete začať písat..."></textarea>
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
+    <div class="row gtr-uniform">
+        <!--Input for title-->
+        <div class="col-12">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
 
-            <!--Chekbox, to be published -->
-            <div class="form-control">
+        <!--Textarea for content-->
+        <div class="col-12">
+            <label asp-for="Content" class="control-label"></label>
+            <textarea asp-for="Content" rows="15" placeholder="Môžete začať písat..."></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
 
-                @Html.CheckBoxFor(m => m.Publised)
-                <label for="Publised">Publikovať</label>
-            </div>
+        <!--Chekbox, to be published -->
+        <div class="col-12">
 
-            <!--"Save" button-->
-            <div class="form-group">
-                <input type="submit" value="Vytvoriť" class="button primary" />
-            </div>
-        </form>
+            @Html.CheckBoxFor(m => m.Publised)
+            <label for="Publised">Publikovať</label>
+        </div>
+
+        <!--"Save" button-->
+        <div class="col-12">
+            <ul class="actions">
+                <li><input type="submit" value="Vytvoriť" class="button primary" /></li>
+                <li><a asp-action="Index" class="button">Späť</a></li>
+            </ul>
+        </div>
+      
     </div>
-</div>
+</form>
 
-
-<!--"Back" button -->
-<div>
-    <a asp-action="Index">Späť</a>
-</div>
 

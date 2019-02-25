@@ -1,0 +1,48 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Profil užívateľa";
+}
+
+
+<section>
+    <header class="main">
+        <h2>@ViewData["Title"]</h2>
+    </header>
+</section>
+
+<div class="row">
+    <div class="col-6 col-12-xsmall">
+        <h3>Osobné informácie</h3>
+
+        <ul>
+            <li><strong>Meno: </strong>@Html.DisplayFor(model => model.RealName) </li>
+            <li><strong>Dátum narodenia: </strong> </li>
+            <li> <strong>Pohlavie: </strong>@ViewData["Sex"]</li>
+            <li> <strong>Email: </strong>@Html.DisplayFor(model => model.Email) </li>           
+        </ul>
+    </div>
+
+    <div class="col-6 col-12-xsmall">
+        <h3>Absolvované kurzy, školenia</h3>
+
+        <ul>
+            <li><strong>Názov kurzu: </strong> </li>
+            <li><strong>Dátum absolvovania kurzu: </strong> </li>           
+        </ul>
+    </div>
+
+   
+
+    @if (User.IsInRole("admin"))
+    {
+    <div class="col-12">
+        <ul>
+            <li><strong>Rola: </strong></li>
+            <li><strong>Dátum absolvovania kurzu: </strong> </li>
+        </ul>
+    </div>
+    }
+</div>
+
+
