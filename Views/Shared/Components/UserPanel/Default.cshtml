@@ -1,0 +1,32 @@
+﻿@model UserPanelViewModel
+
+
+<ul>
+    @if (Model.LoggedIn)
+    {     
+
+
+        <li>
+            <span class="opener">@Model.RealName</span>
+            <ul>
+                <li><a asp-controller="Account" asp-action="Profile" asp-route-id="@Model.UserId">Môj profil</a></li>
+                @if (User.IsInRole("admin"))
+                {
+
+                    <li><a asp-controller="Articles" asp-action="Index">Články</a></li>
+                    <li><a asp-controller="Account" asp-action="GetUsers">Správa účtov</a></li>
+                }
+
+                <li><a>Moje kurzy</a></li>
+                <li><a asp-controller="Account" asp-action="LogOut">Odhlásiť sa</a></li>
+            </ul>
+        </li>
+    }
+    else
+    {
+
+        <li><a asp-controller="Account" asp-action="Login">Prihlásiť sa</a></li>
+        <li><a asp-controller="Account" asp-action="Register">Registrovať sa</a></li>
+
+    }
+</ul>

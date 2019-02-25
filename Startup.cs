@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace Hasici.Web
 {
@@ -18,7 +19,9 @@ namespace Hasici.Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this method to add services to the 
+        
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -31,13 +34,36 @@ namespace Hasici.Web
             //add dbContext to Dependency Injection
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+
+
+            //adds scoped classer for things like userManager, signInMager etc..
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                //configuring password policy
+                options.Password.RequireNonAlphanumeric = false;
+                
+            })
+
+                //adds tables for iddentity which are used by userManager, signInManager
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+
+                //provider for generating unique keys for things like forgotten passwords etc...
+                .AddDefaultTokenProviders();
+
+
+            //configuring cookies - expiration time...
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromHours(2);
+
+
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env/*, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager*/)
         {
             if (env.IsDevelopment())
             {
@@ -47,8 +73,14 @@ namespace Hasici.Web
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
-            }           
-           
+            }
+
+            app.UseAuthentication();
+
+            //roleManager.CreateAsync(new IdentityRole("admin")).Wait();
+            //var user = userManager.FindByEmailAsync("martin.trojan.372@gmail.com").Result;
+            //userManager.AddToRoleAsync(user, "admin").Wait();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

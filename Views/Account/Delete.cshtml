@@ -1,0 +1,38 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Zmazanie užívateľa";
+}
+
+
+<h3>Ste si istý že chcete odstrániť tohto používateľa?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RealName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RealName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+
+
+    </dl>
+
+    <form asp-action="Delete">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <ul class="actions">
+            <li><input type="submit" value="Odstrániť" class="primary"></li>
+            <li><a asp-action="GetUsers" class="button">Späť</a></li>
+        </ul>
+    </form>
+</div>
