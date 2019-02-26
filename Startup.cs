@@ -63,7 +63,7 @@ namespace Hasici.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env/*, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager*/)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -77,9 +77,9 @@ namespace Hasici.Web
 
             app.UseAuthentication();
 
-            //roleManager.CreateAsync(new IdentityRole("admin")).Wait();
-            //var user = userManager.FindByEmailAsync("martin.trojan.372@gmail.com").Result;
-            //userManager.AddToRoleAsync(user, "admin").Wait();
+            roleManager.CreateAsync(new IdentityRole("admin")).Wait();
+            var user = userManager.FindByEmailAsync("martin.trojan.372@gmail.com").Result;
+            userManager.AddToRoleAsync(user, "admin").Wait();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
