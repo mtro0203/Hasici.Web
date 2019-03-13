@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,9 +16,9 @@ namespace Hasici.Web
         /// <summary>
         /// The title
         /// </summary>
-        [Display(Name ="Nadpis")]
-        [Required(ErrorMessage ="Zadajte nadpis")]
-        [MaxLength(100,ErrorMessage ="Nadpis je príliš dlhý")]
+        [Display(Name = "Nadpis")]
+        [Required(ErrorMessage = "Zadajte nadpis")]
+        [MaxLength(100, ErrorMessage = "Nadpis je príliš dlhý")]
         public string Title { get; set; }
 
         /// <summary>
@@ -52,11 +53,14 @@ namespace Hasici.Web
         /// <summary>
         /// The flag if the article was released or not
         /// </summary>
-        [Display(Name ="Publikované")]
+        [Display(Name = "Publikované")]
         public bool Publised { get; set; }
-        
 
-       
 
+        /// <summary>
+        /// User who write the article
+        /// </summary>
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

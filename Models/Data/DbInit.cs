@@ -9,6 +9,8 @@ namespace Hasici.Web
         public static void FillDb (ApplicationDbContext context)
         {
             context.Database.EnsureCreated();
+           
+            
 
            
 

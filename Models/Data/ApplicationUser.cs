@@ -1,6 +1,7 @@
 ﻿
 
 using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hasici.Web
@@ -22,5 +23,10 @@ namespace Hasici.Web
         /// </summary>
         [Display(Name ="Pohlavie")]
         public bool Male { get; set; }
+
+        /// <summary>
+        /// Articles which user write
+        /// </summary>       
+        public ICollection<Article> Articles { get; set; }
     }
 }
